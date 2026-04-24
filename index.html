@@ -1,0 +1,253 @@
+<!--
+Googleサイト埋め込み用：DIYstation コーポレートHP
+使い方：Googleサイト → 挿入 → 埋め込む → 埋め込みコード → このコードを貼り付け
+差し替え箇所：LOGO_URL / QUICKPOST_IMAGE_URL / QUICKSTACK_IMAGE_URL
+-->
+<div class="ds-site" id="top">
+  <style>
+    .ds-site{
+      --navy:#082a5b;
+      --navy2:#0d376f;
+      --blue:#2d78d6;
+      --teal:#2fb7a3;
+      --orange:#ff7a00;
+      --red:#ef3338;
+      --ink:#17243b;
+      --muted:#5d6b80;
+      --line:#e6edf5;
+      --soft:#f7fbff;
+      --white:#ffffff;
+      --shadow:0 16px 42px rgba(8,42,91,.10);
+      --shadow2:0 8px 24px rgba(8,42,91,.08);
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;
+      color:var(--ink);
+      background:#fff;
+      line-height:1.75;
+      letter-spacing:.02em;
+      width:100%;
+      overflow:hidden;
+    }
+    .ds-site *{box-sizing:border-box}
+    .ds-site a{text-decoration:none;color:inherit}
+    .ds-site img{max-width:100%;display:block}
+    .ds-wrap{width:min(1120px,calc(100% - 40px));margin:0 auto}
+
+    .ds-header{
+      background:rgba(255,255,255,.96);
+      border-bottom:1px solid rgba(8,42,91,.08);
+    }
+    .ds-header-inner{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .ds-logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:230px;
+    }
+    .ds-logo-img{
+      width:58px;
+      height:58px;
+      object-fit:contain;
+      border-radius:8px;
+    }
+    .ds-logo-fallback{
+      width:54px;height:54px;border-radius:16px;
+      background:conic-gradient(from 0deg,#2489d7,#22b8a6,#f28b34,#6157c9,#4eb465,#2f72c8,#f06f3d,#7d3daa,#2489d7);
+      position:relative;flex:0 0 auto;
+      box-shadow:0 8px 20px rgba(8,42,91,.12);
+    }
+    .ds-logo-fallback:after{
+      content:"";position:absolute;inset:18px;background:white;border-radius:50%;
+    }
+    .ds-logo-text strong{
+      display:block;color:var(--navy);font-size:29px;line-height:1;font-weight:900;letter-spacing:-.04em;
+    }
+    .ds-logo-text span{
+      display:block;margin-top:6px;color:#6c7788;font-size:9px;font-weight:800;letter-spacing:.08em;
+    }
+    .ds-nav{display:flex;gap:28px;color:var(--navy);font-size:14px;font-weight:800;white-space:nowrap}
+    .ds-nav a{padding:8px 0;border-bottom:2px solid transparent}
+    .ds-nav a:hover{border-bottom-color:var(--blue)}
+
+    .ds-hero{
+      background:radial-gradient(circle at 82% 12%,rgba(45,120,216,.16),transparent 30%),linear-gradient(180deg,#fff 0%,#f8fbff 100%);
+      border-bottom:1px solid rgba(8,42,91,.06);
+    }
+    .ds-hero-inner{
+      min-height:560px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:52px;
+      align-items:center;
+      padding:70px 0;
+    }
+    .ds-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;color:var(--blue);font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .ds-eyebrow:before{content:"";width:36px;height:2px;background:linear-gradient(90deg,var(--blue),var(--teal));border-radius:999px}
+    .ds-hero h1{margin:0 0 22px;color:var(--navy);font-size:clamp(38px,5vw,66px);line-height:1.14;font-weight:900;letter-spacing:-.055em}
+    .ds-hero p{margin:0;color:#42526b;font-size:16px;line-height:2;max-width:580px;font-weight:500}
+    .ds-actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px}
+    .ds-btn{min-width:172px;height:54px;display:inline-flex;align-items:center;justify-content:center;gap:12px;border-radius:10px;font-size:15px;font-weight:900;border:1px solid transparent;transition:.2s ease;background:white}
+    .ds-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow2)}
+    .ds-btn-primary{background:var(--navy);color:white}
+    .ds-btn-outline{border-color:rgba(8,42,91,.45);color:var(--navy)}
+
+    .ds-visual{position:relative;height:460px}
+    .ds-glow{position:absolute;right:-130px;top:-80px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(45,120,216,.16),transparent 62%)}
+    .ds-beam{position:absolute;right:-105px;width:650px;height:86px;border-radius:999px;transform:rotate(-18deg);background:linear-gradient(90deg,rgba(45,120,216,.05),rgba(45,120,216,.30),rgba(255,255,255,.18))}
+    .ds-beam.one{top:78px}.ds-beam.two{top:222px;height:54px;background:linear-gradient(90deg,rgba(47,183,163,.05),rgba(47,183,163,.26),rgba(255,255,255,.18))}
+    .ds-ui{position:absolute;background:rgba(255,255,255,.9);border:1px solid rgba(8,42,91,.08);border-radius:18px;box-shadow:0 20px 50px rgba(8,42,91,.10);backdrop-filter:blur(8px)}
+    .ds-chart{width:220px;height:118px;top:12px;right:160px;padding:16px}.ds-mini-title{width:86px;height:8px;border-radius:999px;background:#d7e8fb;margin-bottom:14px}
+    .ds-bars{height:64px;display:flex;align-items:flex-end;gap:8px}.ds-bars span{flex:1;border-radius:999px 999px 0 0;background:linear-gradient(180deg,#9fc7ff,#397bd3)}
+    .ds-bars span:nth-child(1){height:24px}.ds-bars span:nth-child(2){height:34px}.ds-bars span:nth-child(3){height:28px}.ds-bars span:nth-child(4){height:52px}.ds-bars span:nth-child(5){height:42px}.ds-bars span:nth-child(6){height:62px}
+    .ds-donut-card{width:174px;height:188px;left:28px;top:150px;display:grid;place-items:center}.ds-donut{width:86px;height:86px;border-radius:50%;background:conic-gradient(var(--blue) 0 48%,#dfe8f7 48% 68%,#7456c8 68% 82%,#b3d3ff 82% 100%);position:relative}.ds-donut:after{content:"";position:absolute;inset:22px;border-radius:50%;background:white}
+    .ds-form{width:160px;height:160px;right:48px;top:126px;padding:20px}.ds-form span{display:block;height:8px;border-radius:999px;background:#d9e9fb;margin-bottom:12px}.ds-form span:nth-child(2){width:72%}.ds-form span:nth-child(3){width:86%}
+    .ds-grid-ui{width:156px;height:130px;right:210px;bottom:72px;padding:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.ds-grid-ui span{border-radius:6px;background:linear-gradient(135deg,#c7dcff,#3579d8);opacity:.82}
+    .ds-accent{position:absolute;right:18px;bottom:112px;width:220px;height:4px;border-radius:999px;background:linear-gradient(90deg,var(--orange),var(--teal),#7456c8);transform:rotate(-28deg)}
+
+    .ds-section{padding:68px 0}.ds-alt{background:linear-gradient(180deg,#fff 0%,#f9fbff 100%)}
+    .ds-title{text-align:center;color:var(--navy);font-size:30px;line-height:1.2;font-weight:900;margin:0 0 34px}.ds-title:after{content:"";display:block;width:52px;height:3px;border-radius:999px;margin:14px auto 0;background:linear-gradient(90deg,var(--blue),var(--teal))}
+
+    .ds-business-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .ds-business-card{background:white;border:1px solid rgba(8,42,91,.08);box-shadow:var(--shadow2);border-radius:16px;min-height:134px;padding:28px 24px;display:grid;grid-template-columns:66px 1fr;gap:16px;align-items:center}
+    .ds-icon{width:58px;height:58px;border:3px solid var(--blue);border-radius:14px;display:grid;place-items:center;color:var(--blue);font-size:22px;font-weight:900}
+    .ds-business-card h3,.ds-strength-card h3{margin:0 0 8px;color:var(--navy);font-size:17px;font-weight:900}.ds-business-card p,.ds-strength-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.8;font-weight:500}
+
+    .ds-product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .ds-product{background:white;border:1px solid rgba(8,42,91,.08);box-shadow:var(--shadow);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+    .ds-product-head{padding:28px 28px 20px}.ds-product-logo{display:flex;align-items:center;gap:12px;color:var(--navy);font-size:30px;font-weight:900;letter-spacing:-.04em;line-height:1;margin-bottom:14px}.ds-red{color:var(--red)}
+    .ds-plane{width:0;height:0;border-left:24px solid var(--blue);border-top:13px solid transparent;border-bottom:13px solid transparent;transform:rotate(-36deg)}
+    .ds-stack{width:34px;height:28px;position:relative;flex:0 0 auto}.ds-stack span{position:absolute;left:0;width:34px;height:10px;border-radius:3px;background:var(--teal);transform:skewY(-24deg)}.ds-stack span:nth-child(1){top:0;opacity:.65}.ds-stack span:nth-child(2){top:9px;opacity:.85}.ds-stack span:nth-child(3){top:18px}
+    .ds-product-head p{margin:0;color:var(--muted);font-size:15px;line-height:1.9;font-weight:500;min-height:84px}.ds-product-actions{padding:0 28px 24px}.ds-product-actions .ds-btn{min-width:148px;height:46px;border:1px solid rgba(8,42,91,.42);color:var(--navy);font-size:14px}
+    .ds-product-image{background:linear-gradient(180deg,#f7faff 0%,#edf4fd 100%);padding:18px 18px 22px;border-top:1px solid rgba(8,42,91,.06);margin-top:auto}.ds-screen{border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 18px 30px rgba(8,42,91,.10);border:1px solid rgba(8,42,91,.08)}.ds-screen img{width:100%;height:auto}
+    .ds-img-placeholder{min-height:390px;display:grid;place-items:center;text-align:center;color:#6b7788;background:linear-gradient(135deg,#fff,#eef5ff);padding:24px;font-weight:800}
+
+    .ds-strength-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.ds-strength-card{background:white;border:1px solid rgba(8,42,91,.08);box-shadow:var(--shadow2);border-radius:16px;padding:24px 18px;display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:start}.ds-circle{width:54px;height:54px;border-radius:50%;border:3px solid var(--blue);display:grid;place-items:center;color:var(--blue);font-size:18px;font-weight:900}.ds-circle.teal{border-color:var(--teal);color:var(--teal)}.ds-circle.purple{border-color:#7456c8;color:#7456c8}
+
+    .ds-company-grid{display:grid;grid-template-columns:1.5fr .9fr;gap:34px;align-items:stretch}.ds-table{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:white;box-shadow:var(--shadow2)}.ds-row{display:grid;grid-template-columns:180px 1fr;border-bottom:1px solid var(--line);min-height:62px}.ds-row:last-child{border-bottom:0}.ds-row dt,.ds-row dd{margin:0;padding:18px 22px;display:flex;align-items:center;font-size:15px}.ds-row dt{background:#f4f8fd;color:var(--navy);font-weight:900}.ds-row dd{color:#495970;font-weight:600}
+    .ds-office{position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(180deg,#a8d0f5 0%,#eaf4ff 42%,#8fb7d9 100%);min-height:238px;box-shadow:var(--shadow2)}.ds-office:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(8,42,91,.08))}.ds-building{position:absolute;bottom:38px;width:66px;background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(85,132,184,.9));border:1px solid rgba(255,255,255,.72);box-shadow:0 18px 28px rgba(8,42,91,.12)}.ds-building:before{content:"";position:absolute;inset:12px 10px;background:repeating-linear-gradient(0deg,rgba(8,42,91,.18) 0 2px,transparent 2px 10px),repeating-linear-gradient(90deg,transparent 0 14px,rgba(255,255,255,.24) 14px 16px)}.ds-b1{left:44px;height:140px}.ds-b2{left:130px;height:180px;width:80px}.ds-b3{left:232px;height:126px;width:66px}.ds-tree{position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(180deg,#69b486,#2f7d58)}
+
+    .ds-contact{margin-top:34px;background:linear-gradient(135deg,var(--navy),#0d3b75);color:#fff;border-radius:16px;box-shadow:var(--shadow);display:grid;grid-template-columns:92px 1fr 320px;gap:22px;align-items:center;padding:28px 36px}.ds-mail{width:70px;height:70px;border-radius:50%;border:2px solid rgba(255,255,255,.72);display:grid;place-items:center;font-size:32px}.ds-contact p{margin:0;font-size:20px;font-weight:900;line-height:1.7}.ds-contact .ds-btn{width:100%;background:white;color:var(--navy)}
+
+    .ds-footer{background:var(--navy);color:white;padding:30px 0}.ds-footer-inner{display:grid;grid-template-columns:1.1fr 1fr 1fr;align-items:center;gap:28px}.ds-footer .ds-logo-text strong{color:white;font-size:27px}.ds-footer .ds-logo-text span{color:rgba(255,255,255,.68)}.ds-footer-links{display:flex;gap:20px;font-size:13px;font-weight:800;color:rgba(255,255,255,.9)}.ds-legal{text-align:right;font-size:12px;line-height:1.9;color:rgba(255,255,255,.72)}
+
+    @media(max-width:980px){
+      .ds-header-inner{min-height:auto;flex-direction:column;align-items:flex-start;padding:16px 0}.ds-nav{width:100%;gap:16px;overflow-x:auto;justify-content:space-between;font-size:13px;padding-bottom:4px}
+      .ds-hero-inner,.ds-business-grid,.ds-product-grid,.ds-strength-grid,.ds-company-grid,.ds-footer-inner{grid-template-columns:1fr}.ds-hero-inner{gap:24px;padding:48px 0 60px}.ds-visual{height:340px}.ds-contact{grid-template-columns:1fr;text-align:center;justify-items:center}.ds-legal{text-align:left}
+    }
+    @media(max-width:640px){
+      .ds-wrap{width:min(100% - 28px,1120px)}.ds-logo-text strong{font-size:25px}.ds-logo-text span{font-size:8px}.ds-hero h1{font-size:39px}.ds-hero p{font-size:14px}.ds-actions,.ds-btn{width:100%}.ds-business-card,.ds-strength-card{grid-template-columns:1fr}.ds-product-logo{font-size:25px}.ds-product-head p{min-height:auto}.ds-row{grid-template-columns:1fr}.ds-row dt,.ds-row dd{padding:14px 18px}.ds-section{padding:52px 0}.ds-contact{padding:26px 20px}.ds-contact p{font-size:18px}.ds-chart{right:80px}.ds-form{right:10px}.ds-grid-ui{right:95px}.ds-donut-card{left:0}
+    }
+  </style>
+
+  <header class="ds-header">
+    <div class="ds-wrap ds-header-inner">
+      <a class="ds-logo" href="#top" aria-label="DIYstation">
+        <!-- ロゴ画像を使う場合は次のimgのsrcを差し替え、不要ならimgを削除してください -->
+        <!-- <img class="ds-logo-img" src="LOGO_URL" alt="DIYstation"> -->
+        <span class="ds-logo-fallback" aria-hidden="true"></span>
+        <span class="ds-logo-text"><strong>DIYstation</strong><span>CREATIVE ENERGY FOR EVERY CHALLENGE</span></span>
+      </a>
+      <nav class="ds-nav" aria-label="サイト内ナビゲーション">
+        <a href="#business">事業内容</a><a href="#products">製品紹介</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="ds-hero">
+    <div class="ds-wrap ds-hero-inner">
+      <div>
+        <div class="ds-eyebrow">Software Development</div>
+        <h1>ソフトウェアで、<br>現場の課題を<br>実用的に解決する。</h1>
+        <p>DIYstationは、業務効率化・出荷支援・在庫管理を中心に、現場の声に寄り添いながら、実務に役立つソフトウェアを開発しています。使いやすく、続けやすい。そんな実用性の高い仕組みで、お客様のビジネスを支えます。</p>
+        <div class="ds-actions"><a class="ds-btn ds-btn-primary" href="#products">製品を見る <span>›</span></a><a class="ds-btn ds-btn-outline" href="#contact">お問い合わせ <span>›</span></a></div>
+      </div>
+      <div class="ds-visual" aria-hidden="true">
+        <div class="ds-glow"></div><div class="ds-beam one"></div><div class="ds-beam two"></div>
+        <div class="ds-ui ds-chart"><div class="ds-mini-title"></div><div class="ds-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+        <div class="ds-ui ds-donut-card"><div class="ds-donut"></div></div>
+        <div class="ds-ui ds-form"><span></span><span></span><span></span></div>
+        <div class="ds-ui ds-grid-ui"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="ds-accent"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="business" class="ds-section">
+    <div class="ds-wrap">
+      <h2 class="ds-title">事業内容</h2>
+      <div class="ds-business-grid">
+        <article class="ds-business-card"><div class="ds-icon">&lt;/&gt;</div><div><h3>ソフトウェア開発</h3><p>業務に最適化したシステムを、要件定義から設計・開発・運用まで一貫して支援します。</p></div></article>
+        <article class="ds-business-card"><div class="ds-icon">↗</div><div><h3>自社プロダクト開発</h3><p>現場の課題をもとに、自社プロダクトを開発・提供し、継続的に改善しています。</p></div></article>
+        <article class="ds-business-card"><div class="ds-icon">◎</div><div><h3>業務効率化支援</h3><p>業務プロセスの見直しからシステム導入・定着まで、効率化の実現を支援します。</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="ds-section ds-alt">
+    <div class="ds-wrap">
+      <h2 class="ds-title">製品紹介</h2>
+      <div class="ds-product-grid">
+        <article class="ds-product">
+          <div class="ds-product-head">
+            <div class="ds-product-logo"><span class="ds-plane"></span><span>QUICK<span class="ds-red">ポスト</span></span></div>
+            <p>注文ページの情報を貼り付けるだけで、クリックポスト発送に必要な情報整理を支援します。ラベル印刷業務を、より速く、よりシンプルに進められる出荷支援アプリです。</p>
+          </div>
+          <div class="ds-product-actions"><a class="ds-btn" href="#contact">詳細を見る <span>›</span></a></div>
+          <div class="ds-product-image"><div class="ds-screen"><img src="QUICKPOST_IMAGE_URL" alt="QUICKポスト アプリ画面" onerror="this.outerHTML='<div class=&quot;ds-img-placeholder&quot;>QUICKポストの画像URLを<br>QUICKPOST_IMAGE_URL に設定してください</div>'"></div></div>
+        </article>
+        <article class="ds-product">
+          <div class="ds-product-head">
+            <div class="ds-product-logo"><span class="ds-stack"><span></span><span></span><span></span></span><span>QUICKSTACK</span></div>
+            <p>在庫状況を見やすく整理し、商品数・在庫数・出荷数・粗利まで一元把握できます。実務で回る在庫管理を目指した、視認性重視の在庫管理アプリです。</p>
+          </div>
+          <div class="ds-product-actions"><a class="ds-btn" href="#contact">詳細を見る <span>›</span></a></div>
+          <div class="ds-product-image"><div class="ds-screen"><img src="QUICKSTACK_IMAGE_URL" alt="QUICKSTACK アプリ画面" onerror="this.outerHTML='<div class=&quot;ds-img-placeholder&quot;>QUICKSTACKの画像URLを<br>QUICKSTACK_IMAGE_URL に設定してください</div>'"></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-wrap">
+      <h2 class="ds-title">DIYstationの強み</h2>
+      <div class="ds-strength-grid">
+        <article class="ds-strength-card"><div class="ds-circle">人</div><div><h3>現場目線の設計</h3><p>実務の流れを理解し、使いやすさを重視したシステムを設計します。</p></div></article>
+        <article class="ds-strength-card"><div class="ds-circle">UI</div><div><h3>分かりやすいUI</h3><p>迷わず操作できる画面設計により、導入後の定着を支援します。</p></div></article>
+        <article class="ds-strength-card"><div class="ds-circle teal">✓</div><div><h3>継続改善</h3><p>利用状況や課題に合わせて、機能と使い勝手を継続的に改善します。</p></div></article>
+        <article class="ds-strength-card"><div class="ds-circle purple">盾</div><div><h3>実務に強い構成</h3><p>日々の業務で使い続けられる、安定性と拡張性を意識した構成を重視します。</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="company" class="ds-section">
+    <div class="ds-wrap">
+      <h2 class="ds-title">会社概要</h2>
+      <div class="ds-company-grid">
+        <dl class="ds-table">
+          <div class="ds-row"><dt>会社名</dt><dd>株式会社DIYstation</dd></div>
+          <div class="ds-row"><dt>事業内容</dt><dd>ソフトウェアの企画・開発・販売、業務効率化支援、システムコンサルティング</dd></div>
+          <div class="ds-row"><dt>主力製品</dt><dd>QUICKポスト、QUICKSTACK</dd></div>
+        </dl>
+        <div class="ds-office" aria-label="会社イメージ"><span class="ds-building ds-b1"></span><span class="ds-building ds-b2"></span><span class="ds-building ds-b3"></span><span class="ds-tree"></span></div>
+      </div>
+      <div id="contact" class="ds-contact">
+        <div class="ds-mail" aria-hidden="true">✉</div>
+        <p>製品に関するご相談・導入のご検討など、<br>お気軽にお問い合わせください。</p>
+        <a class="ds-btn" href="mailto:info@example.com">お問い合わせはこちら <span>›</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ds-footer">
+    <div class="ds-wrap ds-footer-inner">
+      <a class="ds-logo" href="#top" aria-label="DIYstation"><span class="ds-logo-fallback" aria-hidden="true"></span><span class="ds-logo-text"><strong>DIYstation</strong><span>CREATIVE ENERGY FOR EVERY CHALLENGE</span></span></a>
+      <div class="ds-footer-links"><a href="#business">事業内容</a><a href="#products">製品紹介</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ</a></div>
+      <div class="ds-legal"><div>プライバシーポリシー　|　サイトマップ</div><div>© DIYstation Co., Ltd. All Rights Reserved.</div></div>
+    </div>
+  </footer>
+</div>
