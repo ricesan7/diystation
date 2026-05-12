@@ -8,130 +8,274 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
-      background: #f8fbff;
+      background: #fff;
       color: #17243b;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      line-height: 1.75;
     }
     a { text-decoration: none; color: inherit; }
 
-    /* Header */
+    /* ===== HEADER ===== */
     header {
-      background: #fff;
-      border-bottom: 1px solid #e6edf5;
-      padding: 0 24px;
+      background: #082a5b;
+      padding: 0 32px;
     }
     .header-inner {
-      max-width: 960px;
+      max-width: 1080px;
       margin: 0 auto;
-      height: 68px;
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
     .logo {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 900;
-      color: #082a5b;
+      color: #fff;
       letter-spacing: -.04em;
     }
+    .logo span {
+      color: #2fb7a3;
+    }
+    nav { display: flex; gap: 8px; }
     nav a {
       font-size: 14px;
       font-weight: 700;
-      color: #082a5b;
-      padding: 6px 14px;
+      color: rgba(255,255,255,.78);
+      padding: 8px 16px;
       border-radius: 8px;
-      transition: background .15s;
+      transition: background .15s, color .15s;
     }
-    nav a:hover { background: #eef4ff; }
+    nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
 
-    /* Hero */
+    /* ===== HERO ===== */
     .hero {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 24px;
-    }
-    .hero-inner {
-      max-width: 640px;
+      background: linear-gradient(135deg, #082a5b 0%, #0d376f 60%, #1a4a8a 100%);
+      padding: 100px 32px 90px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .hero-inner h1 {
-      font-size: clamp(36px, 6vw, 60px);
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 480px; height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(47,183,163,.18), transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(45,120,216,.16), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 11px;
       font-weight: 900;
-      color: #082a5b;
-      letter-spacing: -.05em;
-      line-height: 1.12;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #2fb7a3;
       margin-bottom: 20px;
     }
-    .hero-inner p {
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 64px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.05em;
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+    .hero p {
       font-size: 17px;
-      color: #42526b;
+      color: rgba(255,255,255,.72);
       line-height: 1.9;
       font-weight: 500;
       margin-bottom: 40px;
     }
-    .btn {
+    .btn-hero {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      height: 52px;
-      padding: 0 32px;
+      height: 54px;
+      padding: 0 36px;
       border-radius: 12px;
       font-size: 15px;
       font-weight: 900;
-      background: #082a5b;
+      background: #2fb7a3;
       color: #fff;
+      box-shadow: 0 8px 28px rgba(47,183,163,.35);
       transition: transform .15s, box-shadow .15s;
-      box-shadow: 0 8px 24px rgba(8,42,91,.15);
     }
-    .btn:hover {
+    .btn-hero:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 32px rgba(8,42,91,.20);
-    }
-    .btn svg {
-      flex-shrink: 0;
+      box-shadow: 0 14px 36px rgba(47,183,163,.45);
     }
 
-    /* Footer */
-    footer {
+    /* ===== SECTION BASE ===== */
+    section { padding: 72px 32px; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .section-title {
       text-align: center;
-      padding: 24px;
-      font-size: 13px;
-      color: #8a97a8;
+      font-size: 26px;
+      font-weight: 900;
+      color: #082a5b;
+      margin-bottom: 12px;
+      letter-spacing: -.03em;
+    }
+    .section-sub {
+      text-align: center;
+      font-size: 15px;
+      color: #5d6b80;
+      margin-bottom: 48px;
+    }
+    .divider {
+      width: 48px; height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2d78d6, #2fb7a3);
+      margin: 12px auto 32px;
     }
 
-    @media (max-width: 480px) {
-      .hero { padding: 60px 20px; }
+    /* ===== FEATURES ===== */
+    .features { background: #f7fbff; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .feature-card {
+      background: #fff;
+      border: 1px solid #e6edf5;
+      border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 4px 16px rgba(8,42,91,.06);
+    }
+    .feature-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: #eef4ff;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .feature-icon svg { width: 24px; height: 24px; stroke: #2d78d6; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .feature-card h3 { font-size: 16px; font-weight: 900; color: #082a5b; margin-bottom: 10px; }
+    .feature-card p { font-size: 14px; color: #5d6b80; line-height: 1.85; }
+
+    /* ===== APPLIST CTA ===== */
+    .cta { background: #082a5b; text-align: center; }
+    .cta h2 { font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 14px; letter-spacing: -.03em; }
+    .cta p { font-size: 16px; color: rgba(255,255,255,.68); margin-bottom: 36px; }
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      height: 54px;
+      padding: 0 36px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 900;
+      background: #fff;
+      color: #082a5b;
+      box-shadow: 0 8px 28px rgba(0,0,0,.15);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,0,0,.2); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #04183a;
+      padding: 32px;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255,255,255,.38);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 720px) {
+      .feature-grid { grid-template-columns: 1fr; }
+      .hero { padding: 72px 20px; }
+      section { padding: 56px 20px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <div class="header-inner">
-      <div class="logo">DIYstation</div>
+      <div class="logo">DIY<span>station</span></div>
       <nav>
+        <a href="#features">特徴</a>
         <a href="https://ricesan7.github.io/applist/" target="_blank">アプリ一覧</a>
       </nav>
     </div>
   </header>
 
-  <main class="hero">
+  <!-- Hero -->
+  <div class="hero">
     <div class="hero-inner">
+      <div class="hero-eyebrow">自作ツール・アプリ開発</div>
       <h1>DIYstation</h1>
-      <p>自作アプリやツールをまとめています。<br>アプリの一覧・紹介はこちらからどうぞ。</p>
-      <a class="btn" href="https://ricesan7.github.io/applist/" target="_blank">
+      <p>個人開発したツールやアプリをまとめています。<br>日々の業務や生活を少し便利にするものを作っています。</p>
+      <a class="btn-hero" href="https://ricesan7.github.io/applist/" target="_blank">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
         アプリ一覧を見る
       </a>
     </div>
-  </main>
+  </div>
 
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <div class="section-title">DIYstationについて</div>
+      <div class="divider"></div>
+      <div class="section-sub">個人で開発・公開しているツール・アプリの紹介サイトです</div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>個人開発</h3>
+          <p>趣味・業務効率化を目的に、一から設計・開発したオリジナルのツールです。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3>無料公開</h3>
+          <p>公開しているアプリはすべて無料でご利用いただけます。気軽にお試しください。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>フィードバック歓迎</h3>
+          <p>使ってみた感想や改善のアイデアがあれば、ぜひお知らせください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="section-inner">
+      <h2>アプリ・ツール一覧はこちら</h2>
+      <p>開発したアプリの紹介・リンクはapplistにまとめています</p>
+      <a class="btn-cta" href="https://ricesan7.github.io/applist/" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        applistを見る
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    &copy; 2025 DIYstation
+    &copy; 2025 DIYstation. All rights reserved.
   </footer>
 
 </body>
