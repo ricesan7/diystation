@@ -36,12 +36,23 @@
       justify-content: space-between;
     }
     .logo {
-      font-size: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo img {
+      height: 44px;
+      width: 44px;
+      object-fit: contain;
+    }
+    .logo-text {
+      font-size: 22px;
       font-weight: 900;
       color: #fff;
       letter-spacing: -.04em;
     }
-    .logo span {
+    .logo-text span {
       color: #2fb7a3;
     }
     nav { display: flex; gap: 8px; }
@@ -216,7 +227,10 @@
   <!-- Header -->
   <header>
     <div class="header-inner">
-      <div class="logo">DIY<span>station</span></div>
+      <a class="logo" href="./index.html">
+        <img src="https://base44.app/api/apps/6a025f8617ee917685ce1d81/files/mp/public/6a025f8617ee917685ce1d81/60ff39e11_diystation_logo.png" alt="DIYstation ロゴ">
+        <div class="logo-text">DIY<span>station</span></div>
+      </a>
       <nav>
         <a href="#features">特徴</a>
         <a href="https://ricesan7.github.io/applist/" target="_blank">アプリ一覧</a>
